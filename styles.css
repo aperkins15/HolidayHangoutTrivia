@@ -126,7 +126,7 @@ body::before {
   display: flex;
   flex-wrap: wrap;
   column-gap: 8px;
-  row-gap: 10px;          /* this fixes the “stuck on top” look */
+  row-gap: 10px; /* this fixes the “stuck on top” look */
   align-items: center;
   padding: 10px 12px;
   border-radius: 14px;
@@ -134,12 +134,13 @@ body::before {
 }
 
 .setupBar #seasonSelect {
-  
+  flex: 0 0 auto;
+  width: auto;
   background-color: rgba(255, 255, 255, 0.85);
   border: 1px solid rgba(0, 0, 0, 0.12);
   border-radius: 999px;
   font-size: 0.8rem;
-
+  min-width: 140px;
   padding: 4px 22px 4px 10px;
 
   -webkit-appearance: none;
@@ -150,10 +151,11 @@ body::before {
   flex-basis: 100%;
 }
 
-
 /* All pills stay tight */
 .setupBar .pill {
   margin-right: 0;
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 /* First select creates the visual break */

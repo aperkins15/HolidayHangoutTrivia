@@ -52,7 +52,6 @@ const resetAllBtn = document.getElementById("resetAllBtn");
 const getBank = () =>
   Array.isArray(window.QUESTION_BANK) ? window.QUESTION_BANK : [];
 
-
 // --- SEASONS (winter is base; others may add an override CSS) ---
 const SEASONS = {
   winter: {
@@ -64,7 +63,6 @@ const SEASONS = {
     questionsSrc: "questions/stpaddys.js",
   },
 };
-
 
 let activeSeason = "winter";
 
@@ -103,13 +101,11 @@ function setSeason(seasonKey) {
     questionText.innerHTML = `Click <b>Start Round</b> to begin.`;
   };
 
- s.onerror = () => {
-  const src = SEASONS[activeSeason].questionsSrc;
-  console.error(`Failed to load questions for season: ${activeSeason}`, src);
-  questionText.textContent = `Couldn't load ${src}. Check file path.`;
-};
-
-
+  s.onerror = () => {
+    const src = SEASONS[activeSeason].questionsSrc;
+    console.error(`Failed to load questions for season: ${activeSeason}`, src);
+    questionText.textContent = `Couldn't load ${src}. Check file path.`;
+  };
 
   document.head.appendChild(s);
 }
@@ -123,20 +119,27 @@ function currentRound() {
 }
 
 function updatePills(qObj) {
-  // Round + question count
-  roundPill.textContent = `Round ${currentRoundIndex + 1}: ${
-    currentRound().name
-  }`;
+  const r = currentRound();
+  const roundNum = currentRoundIndex + 1;
+
+  // Round label: avoid "Round 1: Round 1"
+  const roundLabel = String(r.name || "")
+    .toLowerCase()
+    .startsWith("round")
+    ? r.name
+    : `Round ${roundNum}: ${r.name}`;
+
+  roundPill.textContent = roundLabel;
+
+  // Question count
   qPill.textContent = `Question ${currentQuestionIndex + 1} / ${
-    roundQuestions.length || currentRound().questionsPerRound
+    roundQuestions.length || r.questionsPerRound
   }`;
 
   // Category logic
   if (qObj && qObj.cat) {
-    // During a question: show the actual question category
     catPill.textContent = `Category: ${getCategory(qObj)}`;
   } else {
-    // Before round start or between rounds: show selected category
     const selected = categorySelect?.value || "ALL";
     catPill.textContent =
       selected === "ALL" ? "Category: All Categories" : `Category: ${selected}`;
@@ -181,7 +184,6 @@ function getAvailableQuestions(category) {
     return matchesCat && unused;
   });
 }
-
 
 function getCategory(q) {
   const raw = q?.cat ?? q?.category ?? ""; // supports either key
@@ -300,7 +302,6 @@ function pickQuestions({ category, count }) {
   picked.forEach((q) => usedQuestionIds.add(getId(q)));
   return picked;
 }
-
 
 function resetRound(advanceRound = true) {
   roundQuestions = [];
@@ -485,9 +486,6 @@ window.initGame = function initGame() {
   pointsSelect.value = String(GAME_CONFIG.pointsDefault);
 
   // boot (safe even with defer)
- 
 };
 
 window.initGame?.();
-
-
