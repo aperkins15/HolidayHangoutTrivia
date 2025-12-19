@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="styles.css" />
-    <!-- <link rel="stylesheet" href="themes/spring-stpaddy.css" /> change theme and uncomment depending on season-->
+    <link rel="stylesheet" href="themes/winter.css" />
+    <link id="seasonTheme" rel="stylesheet" href="" />
+
+    <script src="app.js" defer></script>
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,8 +18,7 @@
         <div>
           <h1>Hangout Trivia</h1>
           <p class="sub">
-            Host-led scoring • Multiple rounds • Multiple winners • Amaze
-            points-ready
+            Host-led scoring • Multiple rounds • Multiple winners 
           </p>
         </div>
         <div class="badgeRow">
@@ -38,6 +40,10 @@
                 <div class="pill" id="qPill">Question 1</div>
                 <div class="pill" id="catPill">Category: —</div>
                 <div class="pill" id="diffPill">Difficulty: —</div>
+                <select id="seasonSelect" title="Season">
+                  <option value="winter" selected>Winter (base)</option>
+                  <option value="spring-stpaddy">Spring / St. Paddy’s</option>
+                </select>
 
                 <select id="categorySelect">
                   <option value="ALL">All categories</option>
@@ -191,7 +197,5 @@
         </div>
       </div>
     </div>
-    <script src="questions/winter.js"></script>
-    <script src="app.js"></script>
-  </body>
+    </body>
 </html>
