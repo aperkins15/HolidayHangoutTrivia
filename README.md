@@ -15,7 +15,7 @@ Built as a lightweight, single-page app with no frameworks and no backend.
 - Live scoreboard with manual score adjustment
 - Scrollable player list for larger groups
 - Round winners display with a celebratory sparkle moment
-- Festive UI with subtle winter theming
+- Festive UI with subtle seasonal theming
 
 ---
 
@@ -56,14 +56,14 @@ Perfect for:
 
 No frameworks, no build tools, no backend.
 
-Runs entirely in the browser
+Runs entirely in the browser with no backend or build step.
 
 ---
 
 ## ▶️ Run Locally
 Runs entirely in the browser and can be opened directly via `file://` (no server required).
 
-### Option 1: VS Code Live Server (recommended)
+### Option 1: VS Code Live Server (optional)
 - Open `index.html`
 - Right-click → **Open with Live Server**
 
