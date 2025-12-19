@@ -98,7 +98,7 @@ window.QUESTION_BANK = [
   { cat: "Food_15", diff: 2, q: "What’s a common holiday dessert base that’s often rolled and filled, then sliced?", choices: ["Yule log cake roll", "Cheesecake", "Brownies", "Muffins"], a: "Yule log cake roll", fact: "A bûche de Noël is a classic winter dessert style." },
 
   // =========================
-  // WINTER (15)
+  // SEASONAL (15)
   // =========================
   { cat: "Winter_01", diff: 2, q: "What is the name of a snowstorm with strong winds that reduce visibility?", choices: ["Monsoon", "Blizzard", "Typhoon", "Dust devil"], a: "Blizzard", fact: "Blizzards combine wind + low visibility + snow." },
   { cat: "Winter_02", diff: 2, q: "What is the name for frozen rain that forms a glaze on surfaces?", choices: ["Hail", "Sleet", "Freezing rain", "Frost"], a: "Freezing rain", fact: "It creates that dangerous glassy ice layer." },

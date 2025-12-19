@@ -1,5 +1,7 @@
 /* themes/spring-stpaddy.css */
 
+
+
 :root{
   --bg1:#06361f;
   --bg2:#1b6b3a;
@@ -42,49 +44,34 @@
 }
 
 /* ============================
-   St. Patrick’s Floating Confetti
+   Shamrock Confetti (replaces snow)
    ============================ */
 
+/* Disable base snow flakes */
+.snow::before,
+.snow::after {
+  display: none !important;
+}
+
+/* Confetti layer */
 .snow {
-  opacity: 1;
-  filter: none;
+  opacity: 1 !important;
+  filter: none !important;
 
-  /* Slower, floaty motion */
-  animation-duration: 55s !important;
-  animation-timing-function: linear !important;
-  animation-name: confettiDrift !important;
-
-  /* MUCH bolder confetti particles */
   background-image:
-    radial-gradient(4px 4px at 30px 40px, rgba(63, 204, 127, 0.95), transparent 60%),
-    radial-gradient(3px 3px at 120px 160px, rgba(214, 178, 74, 0.95), transparent 60%),
-    radial-gradient(3.5px 3.5px at 200px 90px, rgba(255, 255, 255, 0.85), transparent 60%),
-    radial-gradient(4.5px 4.5px at 300px 220px, rgba(63, 204, 127, 0.85), transparent 60%),
-    radial-gradient(3px 3px at 420px 140px, rgba(214, 178, 74, 0.9), transparent 60%),
-    radial-gradient(4px 4px at 520px 60px, rgba(255, 255, 255, 0.75), transparent 60%);
+    radial-gradient(6px 6px at 10% 20%, #3fcc7f 60%, transparent 61%),
+    radial-gradient(5px 5px at 30% 45%, #d6b24a 60%, transparent 61%),
+    radial-gradient(4px 4px at 55% 30%, #ffffff 55%, transparent 56%),
+    radial-gradient(6px 6px at 75% 60%, #3fcc7f 60%, transparent 61%),
+    radial-gradient(5px 5px at 90% 35%, #d6b24a 60%, transparent 61%);
+
+  background-size: 420px 420px;
+  animation: confettiDrift 60s linear infinite !important;
 }
 
-
-/* Add a gentle sideways “drift” so it floats, not drops */
+/* Float, don’t fall */
 @keyframes confettiDrift {
-  0% {
-    transform: translateY(-15%) translateX(0%);
-  }
-  40% {
-    transform: translateY(40%) translateX(4%);
-  }
-  70% {
-    transform: translateY(85%) translateX(-3%);
-  }
-  100% {
-    transform: translateY(120%) translateX(1%);
-  }
-}
-
-
-/* Override the existing snow-fall animation with drifting confetti */
-.snow {
-  animation-name: confettiDrift !important;
-  box-shadow: none;
-  mix-blend-mode: normal;
+  0%   { transform: translateY(-20%) translateX(0%); }
+  50%  { transform: translateY(60%) translateX(6%); }
+  100% { transform: translateY(130%) translateX(-4%); }
 }
