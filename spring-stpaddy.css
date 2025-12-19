@@ -1,0 +1,77 @@
+/* themes/spring-stpaddy.css */
+
+
+
+:root{
+  --bg1:#06361f;
+  --bg2:#1b6b3a;
+  --accent:#1f8a4c;
+  --accent2:#0b5d2f;
+  --gold:#d6b24a;
+}
+
+/* Swap the header vibe */
+.hero h1::after { content:" 🍀"; }
+
+/* Make the winner sparkle feel “lucky” */
+.sparkle-card{
+  background: linear-gradient(135deg, rgba(31,138,76,.95), rgba(214,178,74,.95));
+  color: #062714;
+  box-shadow:
+    0 0 35px rgba(31,138,76,.55),
+    0 0 80px rgba(214,178,74,.25);
+  animation: popIn 0.5s ease, paddyShimmer 1.6s ease-in-out infinite;
+}
+
+.sparkle-title{
+  font-size: 1.9rem;
+  letter-spacing: .3px;
+}
+
+/* Add 🍀 around the title only for this theme */
+.sparkle-title::before { content:"🍀 "; }
+.sparkle-title::after  { content:" 🍀"; }
+
+@keyframes paddyShimmer{
+  0%,100%{
+    filter: brightness(1) saturate(1);
+    transform: translateY(0) scale(1);
+  }
+  50%{
+    filter: brightness(1.08) saturate(1.15);
+    transform: translateY(-2px) scale(1.015);
+  }
+}
+
+/* ============================
+   Shamrock Confetti (replaces snow)
+   ============================ */
+
+/* Disable base snow flakes */
+.snow::before,
+.snow::after {
+  display: none !important;
+}
+
+/* Confetti layer */
+.snow {
+  opacity: 1 !important;
+  filter: none !important;
+
+  background-image:
+    radial-gradient(6px 6px at 10% 20%, #3fcc7f 60%, transparent 61%),
+    radial-gradient(5px 5px at 30% 45%, #d6b24a 60%, transparent 61%),
+    radial-gradient(4px 4px at 55% 30%, #ffffff 55%, transparent 56%),
+    radial-gradient(6px 6px at 75% 60%, #3fcc7f 60%, transparent 61%),
+    radial-gradient(5px 5px at 90% 35%, #d6b24a 60%, transparent 61%);
+
+  background-size: 420px 420px;
+  animation: confettiDrift 60s linear infinite !important;
+}
+
+/* Float, don’t fall */
+@keyframes confettiDrift {
+  0%   { transform: translateY(-20%) translateX(0%); }
+  50%  { transform: translateY(60%) translateX(6%); }
+  100% { transform: translateY(130%) translateX(-4%); }
+}
