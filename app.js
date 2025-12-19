@@ -2,9 +2,9 @@
         // --- CONFIG ---
         const GAME_CONFIG = {
           rounds: [
-            { name: "Holiday Classics", questionsPerRound: 7 },
-            { name: "Winter & Pop Culture", questionsPerRound: 7 },
-            { name: "Lightning Round", questionsPerRound: 8 },
+            { name: "Round 1", questionsPerRound: 7 },
+            { name: "Round 2", questionsPerRound: 7 },
+            { name: "Round 3", questionsPerRound: 8 },
           ],
           pointsDefault: 3,
         };
